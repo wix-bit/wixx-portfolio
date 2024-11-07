@@ -1,0 +1,380 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #f4f4f4;
+    background-image: url('https://img.freepik.com/free-photo/few-trails-neon-lights_23-2147786045.jpg?t=st=1730959138~exp=1730962738~hmac=732a0bc0b2d02f34940d89eee23132779ffe11cd160b40c56ac4fb63eb7c0848&w=740');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.7);  /* Darker background for contrast */
+    text-align: center;
+    padding: 50px 0;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+}
+
+/* Navigation */
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: #11bafd;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #11bafd;
+    width: 100%;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Section Styling */
+section {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin: 30px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Profile Image */
+.profile-image {
+    width: 180px;                   /* Set width */
+    height: 180px;                  /* Set height */
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-bottom: 20px;
+    object-fit: cover;              /* Ensures the image covers the space without distortion */
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+}
+
+.image-container {
+    text-align: center;
+}
+
+/* Like, Dislike, and Comment Section */
+.interaction-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.like-dislike {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #11bafd;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #00a8cc;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Comment Section */
+.comment-section {
+    margin-top: 40px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment-section input,
+.comment-section textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+}
+
+.comment-section button {
+    background-color: #4caf50;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-section button:hover {
+    background-color: #45a049;
+}
+
+.comment {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(7, 188, 248); /* Change the text color to light blue */
+}
+
+.comment-header {
+    font-weight: bold;
+    color: #333;
+}
+
+.delete-comment-btn {
+    background-color: transparent;
+    color: red;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 15px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-top: 40px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    section {
+        padding: 20px;
+        width: 90%;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px 22px;
+    }
+}
+/* Social Media Links */
+#contact a {
+    color: #fd7e07;  /* Set the default link color to white */
+    text-decoration: none;  /* Remove the underline */
+    font-size: 1rem;  /* Set the font size */
+    transition: color 0.3s ease, transform 0.3s ease;  /* Smooth transition for hover */
+}
+
+#contact a:hover {
+    color: #11bafd;  /* Change to a light blue color on hover */
+    transform: scale(1.05);  /* Slightly enlarge the link when hovered */
+}
+
+/* Optionally, add custom colors for each specific social link */
+#contact a[href*="mailto"] {
+    color: #f39c12; /* Orange for email */
+}
+
+#contact a[href*="linkedin"] {
+    color: #0077b5; /* LinkedIn Blue */
+}
+
+#contact a[href*="github"] {
+    color: #333; /* GitHub Dark Gray */
+}
+
+#contact a:hover {
+    color: #ff5733; /* Set the hover color to a red or any color you prefer */
+    text-decoration: underline;
+}
+/* Project Section Styling */
+#projects {
+    margin: 30px auto;
+    padding: 50px 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 85%;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid #11bafd;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Styling for Project List */
+#projects ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+#projects ul li {
+    background-color: #fff;
+    color: #333;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+#projects ul li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+#projects ul li h3 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+#projects ul li p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* View Project Link Styling */
+#projects ul li a {
+    display: inline-block;
+    padding: 12px 25px;
+    color: #fff;
+    background-color: #11bafd;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 30px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#projects ul li a:hover {
+    background-color: #00a8cc;
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* Hover Effect for Each Project Item */
+#projects ul li:hover a {
+    background-color: #00a8cc;
+    transform: translateX(-50%) scale(1.1);
+}
+
+

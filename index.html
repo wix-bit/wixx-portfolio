@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wixx's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Insert your CSS here */
+        /* The CSS code remains as previously discussed */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Wixx's Portfolio</h1>
+        <p id="passionate-coder">A passionate coder who loves turning ideas into reality through technology.</p>
+    </header>    
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>About Wixx</h2>
+        <div class="about-content">
+            <!-- Profile Image -->
+            <div class="image-container">
+                <img src="https://images.pexels.com/photos/2955376/pexels-photo-2955376.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                     alt="Wixx, a businessman wearing a suit" 
+                     class="profile-image">
+            </div>
+    
+            <!-- Like, Dislike, and Comment Section -->
+            <div class="interaction-container">
+                <!-- Like and Dislike Buttons -->
+                <div class="like-dislike">
+                    <button id="like-btn">👍 Like <span id="like-count">0</span></button>
+                    <button id="dislike-btn">👎 Dislike <span id="dislike-count">0</span></button>
+                </div>
+    
+                <!-- Comment Section -->
+                <div class="comment-section">
+                    <!-- Username Input -->
+                    <input id="username-input" type="text" placeholder="Enter your username" />
+                    <!-- Comment Textarea -->
+                    <textarea id="comment-input" placeholder="Add a public comment..."></textarea>
+                    <!-- Submit Comment Button -->
+                    <button id="submit-comment-btn">Post Comment</button>
+                    <!-- Comment List -->
+                    <div id="comment-list"></div>
+                </div>
+            </div>
+        </div>
+        <p>Hi, I'm Wixx! I'm a software developer with a strong interest in web development and problem-solving. I enjoy tackling challenges and constantly learning new technologies.</p>
+    </section>        
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>
+                <h3>Personal Blog</h3>
+                <p>A blogging platform where I share my coding experiences and tutorials.</p>
+                <a href="#">View Project</a>
+            </li>
+            <li>
+                <h3>Task Manager App</h3>
+                <p>An intuitive app to help users manage their daily tasks efficiently.</p>
+                <a href="#">View Project</a>
+            </li>
+            <li>
+                <h3>Weather App</h3>
+                <p>A simple app that provides real-time weather updates using a public API.</p>
+                <a href="#">View Project</a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>React, Node.js</li>
+            <li>Git, GitHub</li>
+            <li>Responsive Design</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Feel free to reach out to me!</p>
+        <ul>
+            <li>Email: <a href="mailto:wixx@example.com">wixx@example.com</a></li>
+            <li>LinkedIn: <a href="#">LinkedIn Profile</a></li>
+            <li>GitHub: <a href="#">GitHub Profile</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Wixx. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Like, Dislike, and Comment Section -->
+    <script>
+        // Initialize counts for like and dislike
+        let likeCount = 0;
+        let dislikeCount = 0;
+
+        // Function to handle Like button click
+        function incrementLike() {
+            likeCount++; // Increase the like count
+            document.getElementById("like-count").textContent = likeCount; // Update the displayed count
+        }
+
+        // Function to handle Dislike button click
+        function incrementDislike() {
+            dislikeCount++; // Increase the dislike count
+            document.getElementById("dislike-count").textContent = dislikeCount; // Update the displayed count
+        }
+
+        // Attach event listeners to buttons
+        document.getElementById("like-btn").addEventListener("click", incrementLike);
+        document.getElementById("dislike-btn").addEventListener("click", incrementDislike);
+
+        // Function to handle comment submission
+        function submitComment() {
+            const username = document.getElementById("username-input").value.trim(); // Get the username
+            const commentText = document.getElementById("comment-input").value.trim(); // Get the comment text
+
+            // Validate if both username and comment are provided
+            if (username && commentText) {
+                const commentList = document.getElementById("comment-list");
+
+                // Create the comment element
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment");
+
+                // Create comment header
+                const commentHeader = document.createElement("div");
+                commentHeader.classList.add("comment-header");
+                commentHeader.textContent = `${username} says:`;
+
+                // Create comment text
+                const commentTextElement = document.createElement("div");
+                commentTextElement.classList.add("comment-text");
+                commentTextElement.textContent = commentText;
+
+                // Create delete button
+                const deleteButton = document.createElement("button");
+                deleteButton.classList.add("delete-comment-btn");
+                deleteButton.textContent = "Delete";
+                deleteButton.onclick = function() {
+                    commentList.removeChild(commentElement); // Remove the comment when clicked
+                };
+
+                // Append header, text, and delete button to the comment element
+                commentElement.appendChild(commentHeader);
+                commentElement.appendChild(commentTextElement);
+                commentElement.appendChild(deleteButton);
+
+                // Append the comment to the comment list
+                commentList.appendChild(commentElement);
+
+                // Clear the input fields
+                document.getElementById("username-input").value = "";
+                document.getElementById("comment-input").value = "";
+            } else {
+                alert("Please enter both a username and a comment.");
+            }
+        }
+
+        // Attach event listener for submitting comments
+        document.getElementById("submit-comment-btn").addEventListener("click", submitComment);
+    </script>
+</body>
+</html>
